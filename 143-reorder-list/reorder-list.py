@@ -13,7 +13,6 @@ class Solution:
             first = first.next
             second = second.next.next
 
-        first_half = head
         second_half = first.next
         first.next = None
 
@@ -26,11 +25,10 @@ class Solution:
             curr = tmp
         second_half = prev
 
-        curr = first_half
+        curr = head
         while second_half:
             tmp = curr.next
             curr.next = second_half
             second_half = second_half.next
             curr.next.next = tmp
             curr = tmp
-        head = first_half
