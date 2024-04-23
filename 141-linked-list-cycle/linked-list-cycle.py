@@ -9,12 +9,13 @@ class Solution:
         if not head or not head.next:
             return False
 
-        fast = slow = head
+        slow = head
+        fast = head.next
 
         while fast and fast.next:
+            if slow == fast:
+                return True
             slow = slow.next
             fast = fast.next.next
-            if fast == slow:
-                return True
     
         return False
