@@ -11,6 +11,6 @@ class Solution:
         return p == q
 
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
-        if not root:
-            return root == subRoot
-        return True if self.isSameTree(root, subRoot) else self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
+        if root:
+            return True if self.isSameTree(root, subRoot) else self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
+        return not subRoot
