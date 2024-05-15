@@ -1,16 +1,14 @@
 class Solution:
     def moveZeroes(self, nums: list[int]) -> None:
-        left = 0
-        right = 0
+        zeros = 0
+        nonzeros = 0
+        for index in range(len(nums)):
+            if nums[index] == 0:
+                zeros += 1
+            else:
+                nums[nonzeros] = nums[index]
+                nonzeros += 1
 
-        while left < len(nums):
-            if nums[left] == 0:
-                while right < len(nums) and nums[right] == 0:
-                    right += 1
-                if right == len(nums):
-                    break
-                nums[left], nums[right] = nums[right], nums[left]
-            left += 1
-            right = left
-
-        # print(nums)
+        for i in range(zeros):
+            nums[nonzeros] = 0
+            nonzeros += 1
