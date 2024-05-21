@@ -6,9 +6,9 @@ class Solution:
         right = n - 1
         for i in range(n - 1, -1, -1):
             if abs(nums[left]) >= abs(nums[right]):
-                res[i] = nums[left] ** 2
+                res[i] = nums[left] * nums[left]
                 left += 1
             else:
-                res[i] = nums[right] ** 2
+                res[i] = nums[right] * nums[right]
                 right -= 1
         return res
